@@ -1,9 +1,17 @@
 ---
 
 - step:
+    name: image-zip-to-numpy-array
+    image: python:3.6
+    command:
+      - pip install --quiet numpy h5py Pillow
+      - python image_zip_to_numpy_array.py
+    inputs:
+      - name: my-datasets
+        default: https://s3-eu-west-1.amazonaws.com/valohai-examples/integration-example/numbers.zip
+
+- step:
     name: environment-check
-    image: python:3.6.5-alpine3.7
+    image: python:3.6
     command:
       - printenv
-      - python --version
-      - pip list
