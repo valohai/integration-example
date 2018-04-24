@@ -1,0 +1,9 @@
+---
+
+- step:
+    name: environment-check
+    image: python:3.6.5-alpine3.7
+    command:
+      - printenv
+      - python --version
+      - pip list
