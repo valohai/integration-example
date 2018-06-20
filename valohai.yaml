@@ -15,3 +15,16 @@
     image: python:3.6
     command:
       - printenv
+
+- step:
+    name: input-check
+    image: python:3.6
+    command:
+      - ls -la /valohai/inputs
+    inputs:
+      - name: my_inputs
+    parameters:
+      - name: batch_size
+        pass-as: --batch_size={v}
+        type: integer
+        default: 256
